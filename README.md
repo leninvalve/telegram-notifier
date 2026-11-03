@@ -9,6 +9,5 @@ Send messages from Debian to Telegram app. Zero dependencies.
 ```bash
 _TG_TOKEN="7873824:ASDD..."
 _TG_CHAT_ID="2738781"
-
+```
 ~/.telegram must have 0600 permissions.
-
