@@ -12,7 +12,8 @@ send_tg() {
 	curl -sS --connect-timeout 5 --max-time 15 --retry 2 \
 		-X POST "https://api.telegram.org/bot${_TG_TOKEN}/sendMessage" \
 		-d chat_id="$_TG_CHAT_ID" \
-		--data-urlencode "text=$message" > /dev/null
+		-d text="$message" \
+		-d parse_mode="Markdown" > /dev/null
 }
 
 send_tg "$1"
