@@ -1,10 +1,9 @@
 #!/usr/bin/bash
 set -euo pipefail
 
+command -v curl > /dev/null || { echo "cURL not installed. Bye." >&2; exit 1; }
 SECRETS_FILE="$HOME/.telegram"
-
 [[ -r "$SECRETS_FILE" ]] || { echo "Unable to read secrets file. Bye." >&2; exit 1; }
-
 source "$SECRETS_FILE"
 
 send_tg() {
