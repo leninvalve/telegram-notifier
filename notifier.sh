@@ -8,11 +8,11 @@ SECRETS_FILE="$HOME/.telegram"
 source "$SECRETS_FILE"
 
 send_tg() {
-	local message="$1"
+	local message="${1:-}"
 	curl -sS --connect-timeout 5 --max-time 15 --retry 2 \
 		-X POST "https://api.telegram.org/bot${_TG_TOKEN}/sendMessage" \
 		-d chat_id="$_TG_CHAT_ID" \
-		-d text="$message" > /dev/null
+		--data-urlencode "text=$message" > /dev/null
 }
 
-send_tg "dummy text"
+send_tg "$1"
